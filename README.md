@@ -129,7 +129,9 @@ For the local Airflow UI and scheduler:
 cp .env.example .env
 # Edit .env and choose a local password. Do not commit it.
 mkdir -p data artifacts
-chmod g+rwX data artifacts
+# Linux: allow the container GID 0 to write the bind mounts.
+sudo chgrp -R 0 data artifacts
+chmod -R g+rwX data artifacts
 docker compose build
 docker compose up -d
 # After init finishes, trigger the DAG:
