@@ -1,0 +1,9 @@
+data
+artifacts
+.git
+.venv
+.airflow
+__pycache__
+.pytest_cache
+work
+.env

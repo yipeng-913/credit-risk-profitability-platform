@@ -1,0 +1,38 @@
+{
+  "mode": "synthetic demo",
+  "execution_method": "airflow dags test",
+  "dag_id": "credit_risk_pipeline",
+  "run_id": "manual__2025-01-02T00:00:00+00:00",
+  "tasks": [
+    {
+      "task_id": "validate_raw_data",
+      "state": "success",
+      "start_date": null,
+      "end_date": "2026-11-16 17:03:55.160044"
+    },
+    {
+      "task_id": "build_features",
+      "state": "success",
+      "start_date": null,
+      "end_date": "2026-11-16 17:03:55.566468"
+    },
+    {
+      "task_id": "train_model",
+      "state": "success",
+      "start_date": null,
+      "end_date": "2026-11-16 17:03:57.613889"
+    },
+    {
+      "task_id": "evaluate_model",
+      "state": "success",
+      "start_date": null,
+      "end_date": "2026-11-16 17:03:58.165164"
+    },
+    {
+      "task_id": "publish_local_artifacts",
+      "state": "success",
+      "start_date": null,
+      "end_date": "2026-11-16 17:03:59.251330"
+    }
+  ]
+}

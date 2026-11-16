@@ -1,0 +1,19 @@
+{
+  "roc_auc": 0.6284067085953877,
+  "pr_auc": 0.20507885076875576,
+  "brier": 0.10081056204540088,
+  "prevalence": 0.11666666666666667,
+  "threshold": 0.2,
+  "confusion_matrix": [
+    [
+      290,
+      28
+    ],
+    [
+      35,
+      7
+    ]
+  ],
+  "n_holdout": 360,
+  "evaluation": "Untouched local 20% hold-out; PR-AUC is average precision"
+}

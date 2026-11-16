@@ -1,0 +1,46 @@
+{
+  "seed": 42,
+  "threshold": 0.2,
+  "selection": "training-only 3-fold CV average precision",
+  "selected_model": "logistic",
+  "cv": {
+    "logistic": {
+      "roc_auc": 0.6505867103681978,
+      "pr_auc": 0.19354737414356618
+    },
+    "lightgbm": {
+      "roc_auc": 0.6370102491030177,
+      "pr_auc": 0.1775174076165794
+    }
+  },
+  "feature_sha256": "fad345bba8900763e5ebe09c12365aeb2bcd6d10d88e01e341d04f0201f2a71e",
+  "model_sha256": "f4c1b56f3860b90b333850824523145de2ed881cebe0786dd81e3d9f1aaf626e",
+  "splits_sha256": "d5951939c299f6c38d0676ab0222d38625a3356a57582ddf8a8f2ac11ea37edc",
+  "features": [
+    "AMT_INCOME_TOTAL",
+    "AMT_CREDIT",
+    "AMT_ANNUITY",
+    "EXT_SOURCE_2",
+    "NAME_INCOME_TYPE",
+    "age_years",
+    "employment_years",
+    "employment_missing",
+    "credit_income_ratio",
+    "annuity_income_ratio",
+    "bureau_count",
+    "bureau_credit_sum",
+    "bureau_debt_sum",
+    "bureau_overdue_max",
+    "bureau_days_mean",
+    "previous_count",
+    "previous_amount_mean",
+    "previous_refusal_rate",
+    "no_bureau_history",
+    "no_previous_history"
+  ],
+  "split_counts": {
+    "train": 1080,
+    "calibration": 360,
+    "holdout": 360
+  }
+}

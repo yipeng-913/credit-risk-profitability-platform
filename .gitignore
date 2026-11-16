@@ -1,0 +1,17 @@
+/data/
+/artifacts/
+.env
+.env.*
+!.env.example
+kaggle.json
+*.joblib
+*.db
+*.sqlite*
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.venv/
+.airflow/
+logs/
+work/

@@ -1,0 +1,25 @@
+{
+  "applicants": 1800,
+  "unique_ids": 1800,
+  "event_rate": 0.11611111111111111,
+  "employment_sentinel": 120,
+  "nonpositive_income": 0,
+  "invalid_external_score": 0,
+  "missing_fraction": {
+    "EXT_SOURCE_2": 0.08333333333333333,
+    "employment_years": 0.06666666666666667,
+    "previous_refusal_rate": 0.04722222222222222,
+    "previous_amount_mean": 0.04722222222222222,
+    "bureau_credit_sum": 0.04555555555555556,
+    "bureau_overdue_max": 0.04555555555555556,
+    "bureau_days_mean": 0.04555555555555556,
+    "bureau_debt_sum": 0.04555555555555556,
+    "AMT_ANNUITY": 0.0,
+    "TARGET": 0.0
+  },
+  "income_type_counts": {
+    "Commercial associate": 628,
+    "Working": 610,
+    "Pensioner": 562
+  }
+}

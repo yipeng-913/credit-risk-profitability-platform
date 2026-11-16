@@ -1,0 +1,43 @@
+x-common: &common
+  build: .
+  image: credit-risk-lab:0.1.0
+  environment: &env
+    AIRFLOW_HOME: /opt/airflow
+    AIRFLOW__CORE__DAGS_FOLDER: /opt/project/dags
+    AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+    AIRFLOW__CORE__EXECUTOR: SequentialExecutor
+    AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: sqlite:////opt/airflow/airflow.db
+    CREDIT_MODE: ${CREDIT_MODE:-demo}
+    PYTHONPATH: /opt/project
+  volumes:
+    - airflow-state:/opt/airflow
+    - ./data:/opt/project/data
+    - ./artifacts:/opt/project/artifacts
+  working_dir: /opt/project
+services:
+  airflow-init:
+    <<: *common
+    command: bash -c 'airflow db migrate && airflow users create --username admin --firstname Local --lastname User --role Admin --email local@example.invalid --password "$${AIRFLOW_ADMIN_PASSWORD:?Set AIRFLOW_ADMIN_PASSWORD}"'
+    environment:
+      <<: *env
+      AIRFLOW_ADMIN_PASSWORD: ${AIRFLOW_ADMIN_PASSWORD:?Set AIRFLOW_ADMIN_PASSWORD in .env}
+  airflow-webserver:
+    <<: *common
+    command: webserver
+    ports: ["127.0.0.1:8080:8080"]
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+  airflow-scheduler:
+    <<: *common
+    command: scheduler
+    depends_on:
+      airflow-init:
+        condition: service_completed_successfully
+  dashboard:
+    <<: *common
+    entrypoint: []
+    command: streamlit run dashboard/app.py --server.address=0.0.0.0
+    ports: ["127.0.0.1:8501:8501"]
+volumes:
+  airflow-state:

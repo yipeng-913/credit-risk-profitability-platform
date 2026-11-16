@@ -1,0 +1,30 @@
+name: Synthetic integration checks
+on: [push, pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: pip install -r requirements-airflow.txt
+      - run: ruff check .
+      - run: pytest -q --junitxml=artifacts/test-results.xml
+      - run: python -m src.pipeline run --mode demo
+      - name: Test complete Airflow DAG locally
+        env:
+          AIRFLOW_HOME: /tmp/credit-airflow
+          AIRFLOW__CORE__LOAD_EXAMPLES: 'false'
+        run: |
+          airflow db migrate
+          airflow dags test credit_risk_pipeline 2025-01-01 --subdir dags/credit_risk_pipeline.py
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: synthetic-evaluation
+          path: |
+            artifacts/test-results.xml
+            artifacts/demo/metrics.json
+            artifacts/demo/training.json
