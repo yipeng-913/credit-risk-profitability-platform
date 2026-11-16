@@ -1,6 +1,6 @@
 # Credit Risk & Profitability Analytics Platform
 
-[![Synthetic integration checks](https://github.com/yipeng-913/home-credit-risk-profitability-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/yipeng-913/home-credit-risk-profitability-platform/actions/workflows/ci.yml)
+[![Synthetic integration checks](https://github.com/yipeng-913/credit-risk-profitability-platform/actions/workflows/ci.yml/badge.svg)](https://github.com/yipeng-913/credit-risk-profitability-platform/actions/workflows/ci.yml)
 
 An **unofficial independent project**, inspired by a mock ML engineering assessment. No affiliation with or endorsement by ING or Home Credit. A reproducible research prototype combining repayment-difficulty modeling, offline evaluation, and explicitly hypothetical loan economics.
 
@@ -19,8 +19,8 @@ An **unofficial independent project**, inspired by a mock ML engineering assessm
 Verified locally with Python 3.12.14. Direct Python dependencies are versioned in `requirements.txt`; Airflow is pinned in `requirements-airflow.txt`. Local development, CI and Docker use the same dependency files. Transitive dependencies are resolved by pip, rather than a fully hashed lockfile.
 
 ```bash
-git clone https://github.com/yipeng-913/home-credit-risk-profitability-platform.git
-cd home-credit-risk-profitability-platform
+git clone https://github.com/yipeng-913/credit-risk-profitability-platform.git
+cd credit-risk-profitability-platform
 python3.12 -m venv .venv
 source .venv/bin/activate
 pip install -r requirements-airflow.txt
